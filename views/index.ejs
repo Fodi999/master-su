@@ -1,70 +1,53 @@
+<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="/manifest.json">
-  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="/css/navigation.css">
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="/css/index.css">
-
+  <link rel="stylesheet" href="/css/ask.css">
+  <link rel="stylesheet" href="/css/contact.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/recipes.css">
   <meta name="theme-color" content="#4caf50">
   <title><%= title %></title>
-
 </head>
 <body>
+  <!-- Хедер, который не будет обновляться -->
   <header>
     <div class="header-container">
-      <img src="<%= logo %>" alt="Master Sushi Logo" class="logo">
-      <h1><%= message %></h1>
+      <img src="/images/Group 5.svg" alt="Master Sushi Logo" class="logo">
+      <h1>Master Sushi</h1>
     </div>
+    <nav>
+      <ul>
+        <!-- Ссылка на /home -->
+        <li><a href="/home" class="nav-link" data-page="/home">Home</a></li>
+        <li><a href="/menu" class="nav-link" data-page="/menu">Menu</a></li>
+        <li><a href="/ask" class="nav-link" data-page="/ask">Ask</a></li>
+        <li><a href="/contact" class="nav-link" data-page="/contact">Contact</a></li>
+        <li><a href="/recipes" class="nav-link" data-page="/recipes">Recipes</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="cards-container">
-    <section class="card">
-      <img src="/images/002.jpg" alt="Technologie" class="card-image">
-      <div class="card-content">
-        <h2>Najnowsze Technologie w Rozwoju Webowym</h2>
-        <ul>
-          <% technologies.forEach(function(tech) { %>
-            <li><%= tech %></li>
-          <% }); %>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card">
-      <img src="/images/003.jpg" alt="Sushi" class="card-image">
-      <div class="card-content">
-        <h2>Dlaczego My?</h2>
-        <p>Oferujemy najlepsze sushi w mieście, przygotowane z miłością i najwyższej jakości składników.</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <img src="/images/004.jpg" alt="Kontakt" class="card-image">
-      <div class="card-content">
-        <h2>Skontaktuj się z nami</h2>
-        <p>Email: info@mastersushi.com</p>
-        <p>Telefon: +1 234 567 890</p>
-      </div>
-    </section>
+  <!-- Контейнер для динамического контента -->
+  <main id="main-content">
+    <!-- Контент будет загружаться сюда -->
   </main>
-  <%- include('partials/navigation') %>
 
-
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').then(() => {
-        console.log('Service Worker Registered');
-      }).catch(err => {
-        console.error('Service Worker Registration Failed:', err);
-      });
-    }
-  </script>
+  <script src="/js/navigation_script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,18 @@
+/* styles/recipes.css */
+
+/* Стиль для страницы Recipes */
+h2 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+   
