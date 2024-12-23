@@ -14,6 +14,9 @@ app.use(express.json());
 // Настройка статической папки
 app.use(express.static(path.join(__dirname, '../public')));
 
+// Настройка папки css
+app.use('/css', express.static(path.join(__dirname, '../css')));
+
 // Маршрут для главной страницы
 app.get('/', (req, res) => {
   res.render('index', {
@@ -35,6 +38,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
+
 
 
 

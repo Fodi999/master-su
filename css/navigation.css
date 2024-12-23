@@ -1,0 +1,149 @@
+/* Навигационная панель */
+.navigation-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    padding: 8px 15px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
+    border-top: 1px solid #333;
+}
+
+/* Стили для навигации */
+.navigation {
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    max-width: 1200px;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+}
+
+/* Элементы списка */
+.navigation li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Кнопки навигации */
+.navigation a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 12px; /* Умеренные отступы */
+    color: white;
+    background-color: #333;
+    border-radius: 30px;
+    font-size: 0.8rem; /* Средний текст */
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center; /* Центрирование текста */
+}
+
+/* При наведении */
+.navigation a:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Кнопка "Задай вопрос" */
+.ask-button a {
+    background-color: var(--primary-color); /* Основной цвет для выделения */
+    color: black;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.ask-button a:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Иконки */
+.bx {
+    font-size: 16px; /* Оптимальный размер иконок */
+    color: inherit;
+}
+
+/* Учитываем высоту фиксированной навигации */
+body {
+    padding-bottom: 80px; /* Подстраиваем под высоту навигационной панели */
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 768px) {
+    .navigation-bar {
+        padding: 10px;
+    }
+
+    .navigation {
+        gap: 8px;
+    }
+
+    .navigation a {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .bx {
+        font-size: 14px;
+    }
+
+    .ask-button a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 480px) {
+    .navigation-bar {
+        padding: 10px 8px;
+    }
+
+    .navigation {
+        flex-wrap: wrap; /* Кнопки располагаются в несколько строк */
+        gap: 4px; /* Минимальное расстояние между кнопками */
+        justify-content: center; /* Центрирование кнопок */
+    }
+
+    .navigation li {
+        flex: 1;
+        max-width: 70px; /* Ограничиваем ширину */
+        text-align: center;
+    }
+
+    .navigation a {
+        font-size: 0.65rem; /* Очень маленький текст */
+        padding: 4px 6px; /* Минимальные отступы */
+        border-radius: 20px; /* Более компактные кнопки */
+    }
+
+    .ask-button a {
+        font-size: 0.75rem; /* Уменьшенный текст для кнопки */
+        padding: 6px 10px; /* Умеренные отступы */
+        border-radius: 30px; /* Немного больше радиус */
+        max-width: 120px; /* Ширина кнопки "Задай вопрос" */
+    }
+
+    .bx {
+        font-size: 12px; /* Уменьшение размера иконок */
+    }
+}
