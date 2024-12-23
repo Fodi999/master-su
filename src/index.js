@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Используем $PORT от Heroku или 3000 по умолчанию
 
 // Установка EJS как шаблонизатора
 app.set('view engine', 'ejs');
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.render('index', {
     title: 'Master Sushi',
     message: 'Welcome to Master Sushi!',
-    logo: '/images/Group 5.svg', // Путь к логотипу
+    logo: '/images/Group 5.svg',
     technologies: [
       'JavaScript for flexible programming',
       'Express for fast and flexible back-end',
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
       'EJS for dynamic templates',
       'Tailwind CSS for modern styling',
     ],
-    images: ['/images/sushi1.jpg', '/images/sushi2.jpg'], // Примеры изображений
+    images: ['/images/sushi1.jpg', '/images/sushi2.jpg'],
   });
 });
 
