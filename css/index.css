@@ -1,5 +1,6 @@
-/* Основные стили для главной страницы (index.css) */
+/* styles/index.css */
 
+/* Общие переменные */
 :root {
   --primary-color: #4caf50;
   --secondary-color: #282828;
@@ -40,45 +41,7 @@ header {
   width: auto;
 }
 
-/* Навигационная панель внизу */
-nav {
-  background-color: var(--secondary-color);
-  padding: 10px 20px;
-  position: fixed; /* Панель фиксируется внизу */
-  bottom: 0; /* Располагаем её внизу */
-  left: 0;
-  width: 100%; /* Панель на всю ширину */
-  z-index: 1000; /* Чтобы панель была всегда поверх */
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center; /* Горизонтальное центрирование */
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-  background-color: white;
-  color: var(--secondary-color);
-}
-
+/* Основной контент */
 main {
   padding: 20px;
   max-width: 1200px;
@@ -153,11 +116,6 @@ footer p {
     flex-direction: column;
   }
 
-  nav ul {
-    flex-direction: row; /* Меняем на горизонтальное расположение */
-    gap: 15px; /* Уменьшаем расстояние между кнопками */
-  }
-
   .cards-container {
     grid-template-columns: 1fr 1fr; /* Два столбца */
   }
@@ -177,11 +135,6 @@ footer p {
     flex-direction: column;
   }
 
-  nav ul {
-    flex-direction: row; /* Горизонтальная навигация на мобильных устройствах */
-    gap: 15px; /* Уменьшаем промежутки между элементами */
-  }
-
   .cards-container {
     grid-template-columns: 1fr; /* Один столбец */
   }
@@ -193,41 +146,16 @@ footer p {
 
 /* Для очень маленьких экранов */
 @media (max-width: 480px) {
-  nav a {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-  }
-
-  .logo {
-    height: 40px; /* Уменьшаем размер логотипа */
-  }
-
-  header h1 {
-    font-size: 1.5rem; /* Меньший размер шрифта для заголовка */
-  }
-
   footer p {
     font-size: 0.8rem; /* Уменьшаем размер шрифта в футере */
   }
 }
 
+/* Поддержка темной темы */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #121212;
     color: #e0e0e0;
-  }
-
-  nav {
-    background-color: #1e1e1e;
-  }
-
-  nav a {
-    color: #e0e0e0;
-  }
-
-  nav a:hover {
-    background-color: var(--primary-color);
-    color: black;
   }
 
   footer {
@@ -239,5 +167,6 @@ footer p {
     color: #e0e0e0;
   }
 }
+
 
 

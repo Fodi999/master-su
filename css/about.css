@@ -1,0 +1,124 @@
+/* styles/about.css */
+
+/* Стили для секции с фото и информацией об авторе */
+.about-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between; /* Обеспечиваем пространство между фото и текстом */
+}
+
+.author-photo {
+  margin-right: 20px;
+}
+
+.author-img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.author-info {
+  max-width: 600px;
+}
+
+.author-info h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.author-info p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Стили для 9 шагов и рецептов */
+.steps, .recipes {
+  margin-top: 40px;
+}
+
+.steps ul, .recipes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.steps ul li, .recipes ul li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  /* Выравнивание секции с автором (фото и текст) */
+  .about-container {
+    flex-direction: column; /* Размещение фото и текста вертикально */
+    align-items: center; /* Центрируем элементы по вертикали */
+    text-align: center; /* Выравнивание текста по центру */
+  }
+
+  .author-photo {
+    margin-right: 0; /* Убираем отступ с правой стороны */
+    margin-bottom: 20px; /* Отступ снизу между фото и текстом */
+  }
+
+  .author-img {
+    width: 150px; /* Уменьшаем размер изображения на мобильных устройствах */
+  }
+
+  .author-info h2 {
+    font-size: 24px; /* Уменьшаем размер заголовка */
+  }
+
+  .author-info p {
+    font-size: 16px; /* Уменьшаем размер текста */
+  }
+
+  .steps ul li, .recipes ul li {
+    font-size: 16px; /* Уменьшаем размер шрифта в списках */
+  }
+
+  .btn {
+    padding: 8px 16px; /* Уменьшаем размер кнопки */
+    font-size: 14px; /* Уменьшаем размер шрифта на кнопке */
+  }
+}
+
+/* Адаптивность для очень маленьких экранов (например, смартфоны) */
+@media (max-width: 480px) {
+  .author-img {
+    width: 120px; /* Еще меньше размер фото на маленьких экранах */
+  }
+
+  .author-info h2 {
+    font-size: 20px; /* Уменьшаем размер заголовка */
+  }
+
+  .author-info p {
+    font-size: 14px; /* Уменьшаем размер текста */
+  }
+
+  .steps ul li, .recipes ul li {
+    font-size: 14px; /* Уменьшаем размер шрифта в списках */
+  }
+
+  .btn {
+    padding: 6px 12px; /* Еще меньше отступы для кнопки */
+    font-size: 12px; /* Уменьшаем размер текста на кнопке */
+  }
+}
+

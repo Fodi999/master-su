@@ -1,0 +1,125 @@
+/* styles/navigation.css */
+
+/* Общие стили для меню */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Центрируем меню */
+    margin: 0;
+    white-space: nowrap; /* Запрещаем перенос элементов на новые строки */
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px; /* Уменьшаем отступы между кнопками */
+    font-size: 14px; /* Уменьшаем размер шрифта для меню */
+  }
+  
+  /* Стили для кнопок меню */
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center; /* Центрируем иконку и текст по вертикали */
+    font-weight: bold;
+    padding: 8px 10px; /* Уменьшаем отступы внутри кнопки */
+    border-radius: 30px; /* Закругленные углы для кнопок */
+    background-color: transparent; /* Без фона */
+    transition: all 0.3s ease; /* Плавные переходы */
+    font-size: 10px; /* Уменьшаем размер текста */
+  }
+  
+  nav ul li a:hover {
+    color: #fff; /* Цвет текста и иконки при наведении */
+    background-color: red; /* Оранжевый фон при наведении */
+    transform: scale(1.05); /* Эффект увеличения кнопки */
+  }
+  
+  nav ul li a:hover i {
+    color: #fff; /* Цвет иконки при наведении */
+  }
+  
+  /* Стиль для иконок в меню */
+  nav ul li a i {
+    margin-right: 6px; /* Расстояние между иконкой и текстом */
+    font-size: 16px;   /* Уменьшаем размер иконки */
+    transition: color 0.3s ease; /* Плавный переход для иконки */
+  }
+  
+  /* Выделение кнопки Ask */
+  nav ul li:nth-child(3) a {
+    background-color:rgb(250, 5, 5); /* Оранжевый фон для кнопки Ask */
+    color: white; /* Белый текст */
+    font-size: 10px; /* Уменьшаем размер текста */
+    padding: 8px 14px; /* Увеличиваем padding для кнопки Ask */
+    border-radius: 50px; /* Круглая форма кнопки */
+    box-shadow: 0 4px 6px rgba(240, 20, 20, 0.1); /* Легкая тень */
+  }
+  
+  nav ul li:nth-child(3) a:hover {
+    background-color:rgb(255, 0, 0); /* Темнее при наведении */
+    transform: scale(1.05); /* Эффект увеличения при наведении */
+  }
+  
+  nav ul li:nth-child(3) a i {
+    font-size: 16px; /* Увеличиваем иконку для кнопки Ask */
+  }
+  
+  /* Стиль для навигационной панели */
+  nav {
+    background-color: #282828;
+    padding: 8px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Панель всегда поверх */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Для экрана мобильных устройств (горизонтальное меню с отступами) */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: row; /* Горизонтальное расположение элементов меню */
+      justify-content: center; /* Выравнивание кнопок по центру */
+      padding: 0 20px; /* Отступы по бокам для контейнера меню */
+      margin: 0;
+      flex-wrap: nowrap; /* Разрешаем обтекание на малых экранах */
+    }
+  
+    nav ul li {
+      margin-right: 5px; /* Меньше отступов между кнопками */
+      margin-bottom: 0; /* Убираем нижний отступ */
+    }
+  
+    nav ul li a {
+      font-size: 8px; /* Уменьшаем размер шрифта для мобильных устройств */
+      padding: 6px 10px; /* Уменьшаем отступы для компактности */
+      margin: 0 5px; /* Добавляем отступы между кнопками */
+    }
+  }
+  
+  /* Для экрана очень маленьких устройств (например, смартфоны) */
+  @media (max-width: 480px) {
+    nav ul {
+      flex-direction: row; /* Горизонтальное расположение элементов */
+      justify-content: center; /* Центрируем меню */
+    }
+  
+    nav ul li a {
+      font-size: 8px; /* Очень маленький размер шрифта */
+      padding: 6px 10px; /* Минимальные отступы внутри кнопок */
+    }
+  }
+  
+  
+  
+  
+  
+  
+
+  

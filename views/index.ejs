@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/ask.css">
   <link rel="stylesheet" href="/css/contact.css">
-  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/about.css">
   <link rel="stylesheet" href="/css/recipes.css">
+  <link rel="stylesheet" href="/css/navigation.css">
   <meta name="theme-color" content="#4caf50">
   <title><%= title %></title>
 </head>
@@ -22,16 +23,35 @@
       <img src="/images/Group 5.svg" alt="Master Sushi Logo" class="logo">
       <h1>Master Sushi</h1>
     </div>
-    <nav>
-      <ul>
-        <!-- Ссылка на /home -->
-        <li><a href="/home" class="nav-link" data-page="/home">Home</a></li>
-        <li><a href="/menu" class="nav-link" data-page="/menu">Menu</a></li>
-        <li><a href="/ask" class="nav-link" data-page="/ask">Ask</a></li>
-        <li><a href="/contact" class="nav-link" data-page="/contact">Contact</a></li>
-        <li><a href="/recipes" class="nav-link" data-page="/recipes">Recipes</a></li>
-      </ul>
-    </nav>
+<!-- views/index.ejs -->
+<!-- views/index.ejs -->
+<!-- views/index.ejs -->
+<nav>
+  <ul>
+    <!-- Ссылка на /home с иконкой -->
+    <li><a href="/home" class="nav-link" data-page="/home">
+      <i class="bx bx-home"></i> Home</a></li>
+
+    <!-- Ссылка на /about с иконкой -->
+    <li><a href="/about" class="nav-link" data-page="/about">
+      <i class="bx bx-info-circle"></i> About</a></li> <!-- Заменена иконка и текст -->
+
+    <!-- Ссылка на /ask с иконкой -->
+    <li><a href="/ask" class="nav-link" data-page="/ask">
+      <i class="bx bx-question-mark"></i> Ask</a></li>
+
+    <!-- Ссылка на /contact с иконкой -->
+    <li><a href="/contact" class="nav-link" data-page="/contact">
+      <i class="bx bx-phone"></i> Contact</a></li>
+
+    <!-- Ссылка на /recipes с иконкой -->
+    <li><a href="/recipes" class="nav-link" data-page="/recipes">
+      <i class="bx bx-book"></i> Recipes</a></li>
+  </ul>
+</nav>
+
+
+
   </header>
 
   <!-- Контейнер для динамического контента -->

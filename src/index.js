@@ -37,12 +37,13 @@ app.get('/ask', (req, res) => {
   });
 });
 
-// Маршрут для страницы Menu
-app.get('/menu', (req, res) => {
-  res.render('menu', {
-    title: 'Menu Page',
+// Маршрут для страницы About
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About Us',
   });
 });
+
 
 // Маршрут для страницы Contact
 app.get('/contact', (req, res) => {
