@@ -1,19 +1,17 @@
-/* styles/navigation.css */
-
 /* Общие стили для меню */
 nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: center; /* Центрируем меню */
+    justify-content: center; /* Центрируем меню по горизонтали */
     margin: 0;
     white-space: nowrap; /* Запрещаем перенос элементов на новые строки */
   }
   
   nav ul li {
     display: inline-block;
-    margin-right: 10px; /* Уменьшаем отступы между кнопками */
-    font-size: 14px; /* Уменьшаем размер шрифта для меню */
+    margin-right: 30px; /* Увеличиваем отступы между кнопками */
+    font-size: 14px; /* Размер шрифта для меню */
   }
   
   /* Стили для кнопок меню */
@@ -21,13 +19,14 @@ nav ul {
     text-decoration: none;
     color: white;
     display: flex;
+    flex-direction: row; /* Иконка слева, текст справа */
     align-items: center; /* Центрируем иконку и текст по вертикали */
     font-weight: bold;
-    padding: 8px 10px; /* Уменьшаем отступы внутри кнопки */
+    padding: 8px 15px; /* Отступы внутри кнопки */
     border-radius: 30px; /* Закругленные углы для кнопок */
     background-color: transparent; /* Без фона */
     transition: all 0.3s ease; /* Плавные переходы */
-    font-size: 10px; /* Уменьшаем размер текста */
+    font-size: 12px; /* Уменьшаем размер текста */
   }
   
   nav ul li a:hover {
@@ -43,27 +42,8 @@ nav ul {
   /* Стиль для иконок в меню */
   nav ul li a i {
     margin-right: 6px; /* Расстояние между иконкой и текстом */
-    font-size: 16px;   /* Уменьшаем размер иконки */
+    font-size: 16px;   /* Размер иконки */
     transition: color 0.3s ease; /* Плавный переход для иконки */
-  }
-  
-  /* Выделение кнопки Ask */
-  nav ul li:nth-child(3) a {
-    background-color:rgb(250, 5, 5); /* Оранжевый фон для кнопки Ask */
-    color: white; /* Белый текст */
-    font-size: 10px; /* Уменьшаем размер текста */
-    padding: 8px 14px; /* Увеличиваем padding для кнопки Ask */
-    border-radius: 50px; /* Круглая форма кнопки */
-    box-shadow: 0 4px 6px rgba(240, 20, 20, 0.1); /* Легкая тень */
-  }
-  
-  nav ul li:nth-child(3) a:hover {
-    background-color:rgb(255, 0, 0); /* Темнее при наведении */
-    transform: scale(1.05); /* Эффект увеличения при наведении */
-  }
-  
-  nav ul li:nth-child(3) a i {
-    font-size: 16px; /* Увеличиваем иконку для кнопки Ask */
   }
   
   /* Стиль для навигационной панели */
@@ -77,8 +57,9 @@ nav ul {
     z-index: 1000; /* Панель всегда поверх */
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Меню выравнивается по центру */
     align-items: center;
+    padding-bottom: 40px; /* Отступ снизу для панели */
   }
   
   /* Для экрана мобильных устройств (горизонтальное меню с отступами) */
@@ -86,20 +67,25 @@ nav ul {
     nav ul {
       flex-direction: row; /* Горизонтальное расположение элементов меню */
       justify-content: center; /* Выравнивание кнопок по центру */
-      padding: 0 20px; /* Отступы по бокам для контейнера меню */
+      padding: 0 10px; /* Уменьшаем отступы по бокам для контейнера меню */
       margin: 0;
       flex-wrap: nowrap; /* Разрешаем обтекание на малых экранах */
     }
   
     nav ul li {
-      margin-right: 5px; /* Меньше отступов между кнопками */
+      margin-right: 10px; /* Увеличиваем отступы между кнопками на мобильных */
       margin-bottom: 0; /* Убираем нижний отступ */
     }
   
     nav ul li a {
-      font-size: 8px; /* Уменьшаем размер шрифта для мобильных устройств */
-      padding: 6px 10px; /* Уменьшаем отступы для компактности */
+      font-size: 12px; /* Уменьшаем размер шрифта для мобильных устройств */
+      padding: 6px 8px; /* Уменьшаем отступы для компактности */
       margin: 0 5px; /* Добавляем отступы между кнопками */
+    }
+  
+    /* Сдвигаем все кнопки на мобильных устройствах влево */
+    nav ul li {
+      margin-left: -30px; /* Сдвигаем все кнопки влево на 2px */
     }
   }
   
@@ -111,15 +97,10 @@ nav ul {
     }
   
     nav ul li a {
-      font-size: 8px; /* Очень маленький размер шрифта */
-      padding: 6px 10px; /* Минимальные отступы внутри кнопок */
+      font-size: 12px; /* Очень маленький размер шрифта */
+      padding: 10px 12px; /* Минимальные отступы внутри кнопок */
     }
   }
   
   
-  
-  
-  
-  
-
-  
+    
