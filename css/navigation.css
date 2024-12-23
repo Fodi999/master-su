@@ -5,12 +5,12 @@
     left: 0;
     width: 100%;
     background-color: black;
-    padding: 8px 15px;
+    padding: 16px 15px; /* Увеличение пространства для широкой панели */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     display: flex;
     justify-content: center;
-    align-items: center; /* Центрирование по вертикали */
+    align-items: flex-start; /* Поднимаем кнопки вверх внутри панели */
     border-top: 1px solid #333;
 }
 
@@ -18,13 +18,13 @@
 .navigation {
     display: flex;
     justify-content: center; /* Горизонтальное центрирование */
-    align-items: center; /* Вертикальное центрирование */
+    align-items: center; /* Вертикальное центрирование кнопок */
     max-width: 1200px;
     width: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 8px;
+    gap: 12px; /* Увеличиваем промежутки между кнопками */
 }
 
 /* Элементы списка */
@@ -40,15 +40,15 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 8px 12px; /* Умеренные отступы */
+    padding: 10px 14px; /* Увеличение кнопок */
     color: white;
     background-color: #333;
     border-radius: 30px;
-    font-size: 0.8rem; /* Средний текст */
+    font-size: 0.8rem;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.3s ease;
-    text-align: center; /* Центрирование текста */
+    text-align: center;
 }
 
 /* При наведении */
@@ -60,11 +60,11 @@
 
 /* Кнопка "Задай вопрос" */
 .ask-button a {
-    background-color: var(--primary-color); /* Основной цвет для выделения */
+    background-color: var(--primary-color); /* Основной цвет выделения */
     color: black;
     font-size: 0.9rem;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 12px 16px;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
@@ -78,28 +78,28 @@
 
 /* Иконки */
 .bx {
-    font-size: 16px; /* Оптимальный размер иконок */
+    font-size: 16px;
     color: inherit;
 }
 
 /* Учитываем высоту фиксированной навигации */
 body {
-    padding-bottom: 80px; /* Подстраиваем под высоту навигационной панели */
+    padding-bottom: 100px; /* Увеличиваем нижнее поле для широкой панели */
 }
 
 /* Адаптивность для планшетов */
 @media (max-width: 768px) {
     .navigation-bar {
-        padding: 10px;
+        padding: 14px; /* Увеличиваем пространство для панели */
     }
 
     .navigation {
-        gap: 8px;
+        gap: 10px;
     }
 
     .navigation a {
         font-size: 0.75rem;
-        padding: 6px 10px;
+        padding: 8px 12px;
     }
 
     .bx {
@@ -108,42 +108,44 @@ body {
 
     .ask-button a {
         font-size: 0.85rem;
-        padding: 8px 12px;
+        padding: 10px 14px;
     }
 }
 
 /* Адаптивность для телефонов */
 @media (max-width: 480px) {
     .navigation-bar {
-        padding: 10px 8px;
+        height: 60px; /* Делаем панель шире по вертикали */
+        padding: 20px 10px; /* Пространство для кнопок внутри */
     }
 
     .navigation {
-        flex-wrap: wrap; /* Кнопки располагаются в несколько строк */
-        gap: 4px; /* Минимальное расстояние между кнопками */
+        flex-wrap: wrap; /* Кнопки в несколько строк */
+        gap: 8px; /* Промежутки между кнопками */
         justify-content: center; /* Центрирование кнопок */
     }
 
     .navigation li {
-        flex: 1;
-        max-width: 70px; /* Ограничиваем ширину */
+        flex: unset;
+        max-width: 80px; /* Увеличение ширины кнопок */
         text-align: center;
     }
 
     .navigation a {
-        font-size: 0.65rem; /* Очень маленький текст */
-        padding: 4px 6px; /* Минимальные отступы */
-        border-radius: 20px; /* Более компактные кнопки */
+        font-size: 0.7rem;
+        padding: 8px 10px; /* Увеличиваем кнопки */
+        border-radius: 25px;
     }
 
     .ask-button a {
-        font-size: 0.75rem; /* Уменьшенный текст для кнопки */
-        padding: 6px 10px; /* Умеренные отступы */
-        border-radius: 30px; /* Немного больше радиус */
-        max-width: 120px; /* Ширина кнопки "Задай вопрос" */
+        font-size: 0.8rem;
+        padding: 10px 12px; /* Увеличиваем выделенную кнопку */
+        border-radius: 40px;
+        max-width: 140px; /* Делаем кнопку "Задай вопрос" шире */
     }
 
     .bx {
-        font-size: 12px; /* Уменьшение размера иконок */
+        font-size: 14px;
     }
 }
+
