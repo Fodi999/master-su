@@ -2,28 +2,33 @@
 
 /* Общие переменные */
 :root {
-  --primary-color: #4caf50;
-  --secondary-color: #282828;
-  --light-bg: #f4f4f9;
+  --primary-color: #4caf50; /* Зеленый для активного состояния */
+  --inactive-color: #282828; /* Темный цвет для фона */
+  --light-bg: #f4f4f9; /* Светлый фон для страницы */
+  --background-color: #ffffff; /* Белый цвет для текста и иконок */
   --font-family: 'Arial', sans-serif;
   --transition: all 0.3s ease-in-out;
+  --icon-size: 24px; /* Размер иконок */
+  --active-bg: #4caf50; /* Цвет активного кружка */
+  --nav-height: 70px; /* Высота панели навигации */
+  --nav-border-radius: 35px; /* Закругление углов панели */
 }
 
 /* Базовые стили */
 body {
   font-family: var(--font-family);
   background-color: var(--light-bg);
-  color: var(--secondary-color);
+  color: var(--inactive-color);
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  padding-bottom: 70px; /* Отступ снизу для фиксированной навигации */
+  padding-bottom: 100px; /* Отступ снизу для фиксированной навигации */
 }
 
 header {
-  background: #282828; /* Новый цвет хедера */
+  background: var(--inactive-color);
   color: white;
-  padding: 10px 20px; /* Меньше отступов для поднятия хедера */
+  padding: 10px 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -49,7 +54,7 @@ main {
 }
 
 footer {
-  background: var(--secondary-color);
+  background: var(--inactive-color);
   color: white;
   text-align: center;
   padding: 10px;
@@ -70,7 +75,7 @@ footer p {
 }
 
 .card {
-  background: var(--secondary-color);
+  background: var(--inactive-color);
   color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -105,8 +110,6 @@ footer p {
 }
 
 /* Адаптивность */
-
-/* Для планшетов */
 @media (max-width: 1024px) {
   header {
     text-align: center;
@@ -117,7 +120,7 @@ footer p {
   }
 
   .cards-container {
-    grid-template-columns: 1fr 1fr; /* Два столбца */
+    grid-template-columns: 1fr 1fr;
   }
 
   .card {
@@ -125,7 +128,6 @@ footer p {
   }
 }
 
-/* Для мобильных телефонов */
 @media (max-width: 768px) {
   header {
     padding: 10px 15px;
@@ -136,18 +138,17 @@ footer p {
   }
 
   .cards-container {
-    grid-template-columns: 1fr; /* Один столбец */
+    grid-template-columns: 1fr;
   }
 
   .card {
-    margin-bottom: 20px; /* Увеличение отступов между карточками */
+    margin-bottom: 20px;
   }
 }
 
-/* Для очень маленьких экранов */
 @media (max-width: 480px) {
   footer p {
-    font-size: 0.8rem; /* Уменьшаем размер шрифта в футере */
+    font-size: 0.8rem;
   }
 }
 
@@ -167,6 +168,105 @@ footer p {
     color: #e0e0e0;
   }
 }
+
+/* Навигационная панель */
+.nav-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 500px;
+  height: var(--nav-height);
+  background-color: rgba(40, 40, 40, 0.5); /* Темный фон с 50% прозрачностью */
+  border-radius: var(--nav-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+
+/* Список навигации */
+.nav-bar ul {
+  list-style: none; /* Убираем маркеры списка */
+  display: flex; /* Горизонтальное расположение элементов */
+  justify-content: space-around; /* Равномерное распределение элементов */
+  align-items: center; /* Центрирование по вертикали */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Элементы списка */
+.nav-bar li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ссылки в навигации */
+.nav-link {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white; /* Белый цвет иконок */
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: var(--icon-size);
+}
+
+/* Активная ссылка */
+.nav-link.active {
+  background-color: var(--primary-color); /* Зеленый кружок */
+  color: var(--background-color); /* Белый цвет текста внутри кружка */
+}
+
+/* Наведение на ссылки */
+.nav-link:hover {
+  transform: scale(1.1); /* Легкий эффект увеличения */
+  color: white;
+}
+
+/* Иконки внутри ссылок */
+.nav-link i {
+  color: white; /* Белый цвет иконок */
+  font-size: var(--icon-size);
+  transition: color 0.3s ease;
+}
+
+.nav-link.active i {
+  color: var(--background-color); /* Белый цвет иконок в активном состоянии */
+}
+
+/* Адаптивность навигации */
+@media (max-width: 768px) {
+  .nav-bar {
+    height: var(--nav-height);
+    bottom: 10px;
+  }
+
+  .nav-link {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+
 
 
 
