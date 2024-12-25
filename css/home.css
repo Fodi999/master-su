@@ -1,51 +1,31 @@
-/* styles/home.css */
-
-/* Стиль для страницы Home */
+/* Заголовки */
 h2 {
-    font-size: 36px;
-    color: #333;
-  }
-  
-  p {
-    font-size: 18px;
-    color: #555;
-  }
-  
-  .home-image {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px 0;
-    border-radius: 8px;
-  }
-  
-  .menu-preview, .about-us {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .menu-preview ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .menu-preview ul li {
-    margin: 10px 0;
-  }
-  
-  .menu-preview .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 20px;
-  }
-  
-  .menu-preview .btn:hover {
-    background-color: #555;
-  }
-  
+  font-size: 2.25rem; /* Относительный размер для заголовков */
+  color: #ffffff; /* Белый текст заголовков */
+  margin-bottom: 20px;
+  text-align: center; /* Центрирование заголовков */
+}
+
+/* Параграфы */
+p {
+  font-size: 1rem; /* Размер текста */
+  color: #cccccc; /* Светло-серый текст */
+  margin-bottom: 20px;
+  line-height: 1.6; /* Увеличенная высота строки */
+}
+
+/* Поднимаем текст выше */
+body {
+  padding-bottom: 50px; /* Пространство для подвала */
+}
+
+/* Стили для подвала */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Высота подвала */
+  background-color: #121212; /* Темный фон */
+}
+

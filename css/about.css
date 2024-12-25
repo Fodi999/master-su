@@ -1,11 +1,22 @@
-/* styles/about.css */
+/* Общий темный фон для страницы */
+body {
+  background-color: #121212; /* Темный фон для всей страницы */
+  color: #ffffff; /* Белый цвет текста по умолчанию */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
 
 /* Стили для секции с фото и информацией об авторе */
 .about-container {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
-  justify-content: space-between; /* Обеспечиваем пространство между фото и текстом */
+  justify-content: space-between; /* Пространство между фото и текстом */
+  background-color: #333333; /* Темный фон */
+  padding: 20px; /* Отступы вокруг секции */
+  border-radius: 10px; /* Закругленные углы для секции */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Тень для выделения */
 }
 
 .author-photo {
@@ -13,30 +24,34 @@
 }
 
 .author-img {
-  width: 200px;
+  width: 400px; /* Увеличенный размер изображения */
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Более округленные углы */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Увеличенная тень для выделения */
 }
 
 .author-info {
-  max-width: 600px;
+  max-width: 600px; /* Уменьшен текстовый блок, чтобы изображение выглядело крупнее */
 }
 
 .author-info h2 {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 36px; /* Увеличенный размер заголовка */
+  color: #ffffff; /* Белый цвет текста */
+  margin-bottom: 15px;
 }
 
 .author-info p {
-  font-size: 18px;
-  color: #555;
+  font-size: 20px; /* Крупнее текст */
+  color: #cccccc; /* Светло-серый для улучшенной читаемости */
 }
 
-/* Стили для 9 шагов и рецептов */
+/* Стили для шагов и рецептов */
 .steps, .recipes {
   margin-top: 40px;
+  background-color: #333333; /* Темный фон секций */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Тень для выделения */
 }
 
 .steps ul, .recipes ul {
@@ -45,80 +60,92 @@
 }
 
 .steps ul li, .recipes ul li {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px; /* Крупнее шрифт */
+  margin-bottom: 15px;
+  color: #dddddd; /* Светлый текст */
+  background-color: #444444; /* Темно-серый фон карточек */
+  padding: 10px;
+  border-radius: 8px; /* Округлые углы для карточек */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Легкая тень */
 }
 
+/* Стили кнопок */
 .btn {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
+  background-color: #4caf50; /* Зеленый цвет кнопки */
+  color: white; /* Белый текст */
+  padding: 12px 24px; /* Увеличенные отступы */
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px; /* Более округлые углы */
+  font-size: 16px; /* Увеличенный размер текста */
   display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Темнее зеленый при наведении */
+  transform: scale(1.05); /* Легкий эффект увеличения */
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   /* Выравнивание секции с автором (фото и текст) */
   .about-container {
-    flex-direction: column; /* Размещение фото и текста вертикально */
-    align-items: center; /* Центрируем элементы по вертикали */
-    text-align: center; /* Выравнивание текста по центру */
+    flex-direction: column; /* Вертикальное размещение */
+    align-items: center; /* Центрируем элементы */
+    text-align: center; /* Текст по центру */
   }
 
   .author-photo {
-    margin-right: 0; /* Убираем отступ с правой стороны */
-    margin-bottom: 20px; /* Отступ снизу между фото и текстом */
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .author-img {
-    width: 150px; /* Уменьшаем размер изображения на мобильных устройствах */
+    width: 250px; /* Увеличенный размер изображения на мобильных устройствах */
   }
 
   .author-info h2 {
-    font-size: 24px; /* Уменьшаем размер заголовка */
+    font-size: 28px; /* Уменьшенный размер заголовка */
   }
 
   .author-info p {
-    font-size: 16px; /* Уменьшаем размер текста */
+    font-size: 18px;
   }
 
   .steps ul li, .recipes ul li {
-    font-size: 16px; /* Уменьшаем размер шрифта в списках */
+    font-size: 18px; /* Уменьшенный размер шрифта в списках */
   }
 
   .btn {
-    padding: 8px 16px; /* Уменьшаем размер кнопки */
-    font-size: 14px; /* Уменьшаем размер шрифта на кнопке */
+    padding: 10px 20px; /* Уменьшенные отступы для кнопок */
+    font-size: 14px;
   }
 }
 
 /* Адаптивность для очень маленьких экранов (например, смартфоны) */
 @media (max-width: 480px) {
   .author-img {
-    width: 120px; /* Еще меньше размер фото на маленьких экранах */
+    width: 200px; /* Увеличенный размер изображения */
   }
 
   .author-info h2 {
-    font-size: 20px; /* Уменьшаем размер заголовка */
+    font-size: 24px;
   }
 
   .author-info p {
-    font-size: 14px; /* Уменьшаем размер текста */
+    font-size: 16px;
   }
 
   .steps ul li, .recipes ul li {
-    font-size: 14px; /* Уменьшаем размер шрифта в списках */
+    font-size: 16px;
   }
 
   .btn {
-    padding: 6px 12px; /* Еще меньше отступы для кнопки */
-    font-size: 12px; /* Уменьшаем размер текста на кнопке */
+    padding: 8px 16px; /* Еще меньше отступы для кнопки */
+    font-size: 12px;
   }
 }
+
+
+
 
