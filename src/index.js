@@ -14,6 +14,7 @@ app.use(express.json());
 app.use('/css', express.static(path.join(__dirname, '../css')));
 app.use('/images', express.static(path.join(__dirname, '../images')));
 app.use('/js', express.static(path.join(__dirname, '../js')));
+app.use('/models', express.static(path.join(__dirname, '../models')));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Основной маршрут (рендерит оболочку с хедером и меню)
@@ -44,7 +45,6 @@ app.get('/about', (req, res) => {
   });
 });
 
-
 // Маршрут для страницы Contact
 app.get('/contact', (req, res) => {
   res.render('contact', {
@@ -58,6 +58,21 @@ app.get('/recipes', (req, res) => {
     title: 'Recipes Page',
   });
 });
+
+
+app.post('/ask-bot', (req, res) => {
+  const { question } = req.body;
+
+  let answer;
+  if (question.includes('калорий') && question.includes('лосося')) {
+      answer = 'В 1 кг лосося содержится около 2080 калорий.';
+  } else {
+      answer = 'Извините, я пока не знаю ответа на этот вопрос.';
+  }
+
+  res.json({ answer });
+});
+
 
 // Обработка ошибок
 app.use((err, req, res, next) => {

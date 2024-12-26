@@ -9,9 +9,8 @@
   
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
-
   <meta name="theme-color" content="#282828">
+  
   <title><%= title %></title>
 </head>
 <body>
@@ -41,7 +40,6 @@
           <i class="bx bx-question-mark"></i>
         </a>
       </li>
-     
       <li>
         <a href="/recipes" class="nav-link" data-page="/recipes">
           <i class="bx bx-book"></i>
@@ -60,7 +58,13 @@
     <!-- Контент будет загружаться сюда -->
   </main>
 
+  <!-- Подключение TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  
   <!-- Скрипт для навигации -->
-  <script src="/js/navigation_script.js"></script>
+ 
+  <script type="module" src="/js/navigation_script.js"></script>
+
 </body>
 </html>
+
