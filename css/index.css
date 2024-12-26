@@ -1,72 +1,66 @@
 /* Общие переменные */
-:root { --primary-color: #4caf50; --inactive-color: #282828; --light-bg: #282828; --background-color: #ffffff; --font-family: 'Arial', sans-serif; --transition: all 0.3s ease-in-out; --icon-size: 24px; --active-bg: #4caf50; --nav-height: 70px; --nav-border-radius: 35px; }
+:root { --primary-color: #4caf50; --inactive-color: #282828; --light-bg: #f9f9f9; --background-color: #ffffff; --font-family: 'Arial', sans-serif; --transition: all 0.3s ease-in-out; --icon-size: 24px; --text-color-light: #ffffff; --text-color-dark: #121212; --nav-height: 70px; --nav-border-radius: 35px; --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); --border-radius-small: 4px; --border-radius-medium: 8px; --border-radius-large: 10px; }
 
 /* Базовые стили */
-body { font-family: var(--font-family); background-color: #121212; color: #ffffff; margin: 0; padding: 0; line-height: 1.6; padding-bottom: 100px; }
+body { font-family: var(--font-family); background-color: var(--text-color-dark); color: var(--text-color-light); margin: 0; padding: 0 0 100px; line-height: 1.6; }
 
 /* Шапка */
-header { background: var(--inactive-color); color: white; padding: 10px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+header { background: var(--inactive-color); color: var(--text-color-light); padding: 10px 20px; text-align: center; box-shadow: var(--box-shadow-light); }
 .header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
 .logo { height: 50px; width: auto; }
 
 /* Основной контент */
 main { padding: 20px; max-width: 1200px; margin: 0 auto; }
+.main-content { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem; background-color: var(--light-bg); border-radius: var(--border-radius-medium); box-shadow: var(--box-shadow-light); }
 
 /* Изображение автора */
-.author-img { width: 100%; height: auto; max-width: 600px; border-radius: 15px; object-fit: cover; border: 2px solid var(--primary-color); margin: 20px auto; display: block; }
+.author-img { width: 100%; height: auto; max-width: 600px; border-radius: var(--border-radius-medium); object-fit: cover; border: 2px solid var(--primary-color); margin: 20px auto; display: block; }
 
+/* Заголовки */
+h2, h3 { text-align: center; color: var(--text-color-light); margin-bottom: 1rem; }
+h2 { font-size: 1.5rem; font-weight: bold; }
+h3 { font-size: 1.25rem; }
 
-/* Цель курса */
-.course-target { text-align: center; margin: 40px auto; padding: 20px; font-size: 1.5rem; color: var(--primary-color); background-color: var(--inactive-color); border-radius: 10px; max-width: 800px; line-height: 1.8; }
-@media (max-width: 768px) { .course-target { font-size: 1.2rem; padding: 15px; } }
-@media (max-width: 480px) { .course-target { font-size: 1rem; padding: 10px; } }
+/* Абзацы текста */
+p { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; color: #555; text-align: justify; }
 
-/* Почему выбрать нас */
-.why-choose-us { background-color: var(--inactive-color); padding: 40px 20px; border-radius: 10px; margin: 40px auto; max-width: 800px; color: #ffffff; text-align: center; line-height: 1.8; }
+/* Поля ввода */
+input { width: 320px; padding: 0.5rem; margin-right: 1rem; border: 1px solid #ccc; border-radius: var(--border-radius-small); font-size: 1rem; }
+
+/* Кнопки */
+.form-button { display: inline-block; width: 100%; padding: 0.75rem; margin-top: 1.5rem; background-color: var(--primary-color); color: var(--text-color-light); border: none; border-radius: var(--border-radius-small); font-size: 1rem; font-weight: bold; text-align: center; cursor: pointer; transition: var(--transition); }
+.form-button:hover { background-color: #45a049; }
+
+/* Секции */
+.about-author { padding: 1rem; background-color: var(--light-bg); border-radius: var(--border-radius-medium); margin: 1rem auto; max-width: 600px; }
+.course-target { text-align: center; margin: 40px auto; padding: 20px; font-size: 1.5rem; color: var(--primary-color); background-color: var(--inactive-color); border-radius: var(--border-radius-large); max-width: 800px; line-height: 1.8; }
+.why-choose-us { background-color: var(--inactive-color); padding: 40px 20px; border-radius: var(--border-radius-large); margin: 40px auto; max-width: 800px; color: var(--text-color-light); text-align: center; line-height: 1.8; }
 .why-choose-us h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 20px; }
 .why-choose-us p { font-size: 1rem; color: #e0e0e0; }
-@media (max-width: 768px) { .why-choose-us h3 { font-size: 1.5rem; } .why-choose-us p { font-size: 0.9rem; } }
-@media (max-width: 480px) { .why-choose-us h3 { font-size: 1.2rem; } .why-choose-us p { font-size: 0.8rem; } }
 
-/* Контент курса */
-.course-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px auto; padding: 20px; background-color: var(--inactive-color); border-radius: 10px; }
-.course-item { background: #1e1e1e; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+/* Карточки курса */
+.course-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px auto; padding: 20px; background-color: var(--inactive-color); border-radius: var(--border-radius-large); }
+.course-item { background: #1e1e1e; border-radius: var(--border-radius-large); overflow: hidden; box-shadow: var(--box-shadow-light); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .course-item:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); }
 .course-item img { width: 100%; height: 200px; object-fit: cover; }
 .course-item h4 { margin: 15px; font-size: 1.5rem; color: var(--primary-color); }
 .course-item p { margin: 0 15px 15px; font-size: 1rem; line-height: 1.6; color: #e0e0e0; }
-@media (max-width: 768px) { .course-content { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } .course-item img { height: 150px; } }
-@media (max-width: 480px) { .course-content { grid-template-columns: 1fr; } .course-item img { height: 120px; } }
 
-/* Информация об авторе */
-.author-info { background-color: var(--inactive-color); padding: 20px; border-radius: 10px; text-align: center; color: #ffffff; }
-
-/* Шаги */
+/* Список шагов */
 .steps { list-style: none; padding: 0; margin: 20px auto; max-width: 600px; }
-.steps li { margin: 10px 0; padding: 10px; background-color: var(--inactive-color); color: #ffffff; border-radius: 5px; }
-
-/* Адаптивность */
-@media (max-width: 1024px) { header { text-align: center; } .header-container { flex-direction: column; } .cards-container { grid-template-columns: 1fr 1fr; } .card { padding: 10px; } }
-@media (max-width: 768px) { header { padding: 10px 15px; } .header-container { flex-direction: column; } .cards-container { grid-template-columns: 1fr; } .card { margin-bottom: 20px; } }
-@media (max-width: 480px) { footer p { font-size: 0.8rem; } }
-
-/* Поддержка темной темы */
-@media (prefers-color-scheme: dark) { body { background-color: #121212; color: #e0e0e0; } footer { background: #1e1e1e; } .card { background: #1e1e1e; color: #e0e0e0; } }
+.steps li { margin: 10px 0; padding: 10px; background-color: var(--inactive-color); color: var(--text-color-light); border-radius: var(--border-radius-small); }
 
 /* Навигационная панель */
 .nav-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); max-width: 500px; height: var(--nav-height); background-color: rgba(40, 40, 40, 0.5); border-radius: var(--nav-border-radius); display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000; }
 .nav-bar ul { list-style: none; display: flex; justify-content: space-around; align-items: center; padding: 0; margin: 0; width: 100%; }
 .nav-bar li { display: flex; justify-content: center; align-items: center; }
-.nav-link { width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; text-decoration: none; color: white; background-color: transparent; border-radius: 50%; transition: all 0.3s ease; font-size: var(--icon-size); }
+.nav-link { width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; text-decoration: none; color: var(--text-color-light); background-color: transparent; border-radius: 50%; transition: var(--transition); font-size: var(--icon-size); }
 .nav-link.active { background-color: var(--primary-color); color: var(--background-color); }
-.nav-link:hover { transform: scale(1.1); color: white; }
-.nav-link i { color: white; font-size: var(--icon-size); transition: color 0.3s ease; }
-.nav-link.active i { color: var(--background-color); }
+.nav-link:hover { transform: scale(1.1); color: var(--text-color-light); }
 
-/* Адаптивность навигации */
-@media (max-width: 768px) { .nav-bar { height: var(--nav-height); bottom: 10px; } .nav-link { width: 40px; height: 40px; font-size: 20px; } }
-@media (max-width: 480px) { .nav-link { width: 35px; height: 35px; font-size: 18px; } }
-
+/* Адаптивность */
+@media (max-width: 768px) { .course-target { font-size: 1.2rem; padding: 15px; } .why-choose-us h3 { font-size: 1.5rem; } .why-choose-us p { font-size: 0.9rem; } .nav-bar { height: var(--nav-height); bottom: 10px; } .nav-link { width: 40px; height: 40px; font-size: 20px; } }
+@media (max-width: 480px) { .course-target { font-size: 1rem; padding: 10px; } .why-choose-us h3 { font-size: 1.2rem; } .why-choose-us p { font-size: 0.8rem; } .nav-link { width: 35px; height: 35px; font-size: 18px; } }
 
 
 
