@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -59,20 +60,52 @@ app.get('/recipes', (req, res) => {
   });
 });
 
+// Путь к JSON-файлу
+const dataFilePath = path.join(__dirname, './models/data.json');
 
+// Чтение данных из JSON-файла
+app.get('/data', (req, res) => {
+  fs.readFile(dataFilePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Ошибка чтения файла:', err);
+      return res.status(500).send('Ошибка чтения файла');
+    }
+    res.send(JSON.parse(data));
+  });
+});
+
+// Запись данных в JSON-файл
+app.post('/data', (req, res) => {
+  const newData = req.body;
+  fs.writeFile(dataFilePath, JSON.stringify(newData, null, 2), 'utf8', (err) => {
+    if (err) {
+      console.error('Ошибка записи файла:', err);
+      return res.status(500).send('Ошибка записи файла');
+    }
+    res.send('Данные успешно сохранены');
+  });
+});
+
+// Обработка вопросов от пользователя
 app.post('/ask-bot', (req, res) => {
   const { question } = req.body;
 
-  let answer;
-  if (question.includes('калорий') && question.includes('лосося')) {
-      answer = 'В 1 кг лосося содержится около 2080 калорий.';
-  } else {
-      answer = 'Извините, я пока не знаю ответа на этот вопрос.';
-  }
+  fs.readFile(dataFilePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Ошибка чтения файла:', err);
+      return res.status(500).send('Ошибка чтения файла');
+    }
 
-  res.json({ answer });
+    const qaData = JSON.parse(data);
+    const found = qaData.find(item => item.question.toLowerCase().includes(question.toLowerCase()));
+
+    if (found) {
+      res.json({ answer: found.answer });
+    } else {
+      res.json({ answer: 'Извините, я пока не знаю ответа на этот вопрос.' });
+    }
+  });
 });
-
 
 // Обработка ошибок
 app.use((err, req, res, next) => {
@@ -84,15 +117,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-

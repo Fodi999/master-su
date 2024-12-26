@@ -1,7 +1,3 @@
-// model_storage.js
-
-import * as tf from '@tensorflow/tfjs';
-
 // Функция для сохранения модели
 export async function saveModel(model) {
     try {

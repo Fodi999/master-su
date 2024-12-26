@@ -1,14 +1,24 @@
-export async function trainModel() {
+export async function trainModel(trainingData) {
     console.log('Начинаем обучение модели...');
 
-    const xs = tf.tensor1d([0, 1, 2, 3, 4]);
-    const ys = tf.tensor1d([-1, 1, 3, 5, 7]);
+    // Преобразование данных в числовые значения
+    const inputs = trainingData.map(data => data.input);
+    const outputs = trainingData.map(data => data.output);
+
+    const uniqueInputs = [...new Set(inputs)];
+    const uniqueOutputs = [...new Set(outputs)];
+
+    const inputIndices = inputs.map(input => uniqueInputs.indexOf(input));
+    const outputIndices = outputs.map(output => uniqueOutputs.indexOf(output));
+
+    const xs = tf.tensor1d(inputIndices, 'int32');
+    const ys = tf.tensor1d(outputIndices, 'int32');
 
     const model = tf.sequential();
-    model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
+    model.add(tf.layers.dense({ inputShape: [1], units: uniqueOutputs.length, activation: 'softmax' }));
 
     model.compile({
-        loss: 'meanSquaredError',
+        loss: 'sparseCategoricalCrossentropy',
         optimizer: 'sgd',
     });
 
@@ -23,11 +33,33 @@ export async function trainModel() {
         },
     });
 
-    const prediction = model.predict(tf.tensor1d([5]));
-    const predictedValue = prediction.dataSync()[0];
-    console.log(`Предсказание для x = 5: y = ${predictedValue}`);
+    return { model, uniqueInputs, uniqueOutputs };
+}
 
-    return `Предсказание для x = 5: y = ${predictedValue}`;
+export async function saveModelToJson(model, uniqueInputs, uniqueOutputs) {
+    try {
+        console.log('Сохраняем модель в localStorage...');
+        await model.save('localstorage://my-model');
+        localStorage.setItem('uniqueInputs', JSON.stringify(uniqueInputs));
+        localStorage.setItem('uniqueOutputs', JSON.stringify(uniqueOutputs));
+        console.log('Модель успешно сохранена в localStorage!');
+    } catch (error) {
+        console.error('Ошибка при сохранении модели в localStorage:', error);
+    }
+}
+
+export async function loadModelFromJson() {
+    try {
+        console.log('Пытаемся загрузить модель из localStorage...');
+        const model = await tf.loadLayersModel('localstorage://my-model');
+        const uniqueInputs = JSON.parse(localStorage.getItem('uniqueInputs'));
+        const uniqueOutputs = JSON.parse(localStorage.getItem('uniqueOutputs'));
+        console.log('Модель успешно загружена из localStorage!');
+        return { model, uniqueInputs, uniqueOutputs };
+    } catch (error) {
+        console.warn('Модель не найдена. Возможно, требуется обучение:', error);
+        return null;
+    }
 }
 
 

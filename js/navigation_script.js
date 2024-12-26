@@ -1,6 +1,37 @@
-import { trainModel } from './model_training.js';
+import { trainModel, saveModelToJson, loadModelFromJson } from './model_training.js';
+import { saveModel, loadModel, deleteModel } from './model_storage.js';
 
+let trainingData = [];
+let model = null;
+let uniqueInputs = [];
+let uniqueOutputs = [];
 
+async function fetchData() {
+    try {
+        const response = await fetch('/data');
+        if (!response.ok) throw new Error('Ошибка загрузки данных');
+        const data = await response.json();
+        trainingData = data;
+    } catch (error) {
+        console.error('Ошибка загрузки данных:', error);
+    }
+}
+
+async function saveData() {
+    try {
+        const response = await fetch('/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(trainingData),
+        });
+        if (!response.ok) throw new Error('Ошибка сохранения данных');
+        console.log('Данные успешно сохранены');
+    } catch (error) {
+        console.error('Ошибка сохранения данных:', error);
+    }
+}
 
 async function testTensorFlow() {
     try {
@@ -20,8 +51,7 @@ async function testTensorFlow() {
     }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log('Navigation script initialized.');
 
     try {
@@ -29,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.error('TensorFlow.js is not available. Make sure it is included in your project.');
     }
+
+    await fetchData(); // Загрузка данных при инициализации
 
     const mainContent = document.getElementById('main-content');
 
@@ -140,18 +172,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         async function getBotResponse(question) {
-            if (question.toLowerCase().includes('обучить')) {
+            if (question.toLowerCase().includes('обучить модель')) {
                 console.log('Вызов trainModel для вопроса:', question);
-                const result = await trainModel(); // Здесь должно быть доступно trainModel
-                return `Обучение завершено. Результаты: ${result}`;
+                const result = await trainModel(trainingData);
+                model = result.model;
+                uniqueInputs = result.uniqueInputs;
+                uniqueOutputs = result.uniqueOutputs;
+                await saveModelToJson(model, uniqueInputs, uniqueOutputs);
+                await saveData(); // Сохранение данных на сервере
+                return 'Обучение завершено и модель сохранена в localStorage.';
             }
-        
+
             // Проверка для TensorFlow
             if (question.toLowerCase().includes('tensorflow')) {
                 console.log('Вызов testTensorFlow для вопроса:', question);
                 return await testTensorFlow();
             }
-        
+
+            // Проверка для загрузки модели из localStorage
+            if (question.toLowerCase().includes('загрузить модель')) {
+                console.log('Вызов loadModel для вопроса:', question);
+                const result = await loadModelFromJson();
+                if (result) {
+                    model = result.model;
+                    uniqueInputs = result.uniqueInputs;
+                    uniqueOutputs = result.uniqueOutputs;
+                    return 'Модель успешно загружена из localStorage.';
+                } else {
+                    return 'Модель не найдена. Возможно, требуется обучение.';
+                }
+            }
+
+            // Проверка для удаления модели
+            if (question.toLowerCase().includes('удалить модель')) {
+                console.log('Вызов deleteModel для вопроса:', question);
+                await deleteModel();
+                model = null;
+                uniqueInputs = [];
+                uniqueOutputs = [];
+                return 'Модель успешно удалена.';
+            }
+
+            // Сохранение пользовательских данных для обучения
+            const parts = question.split(' это ');
+            if (parts.length === 2) {
+                const [input, output] = parts;
+                trainingData.push({ input: input.trim(), output: output.trim() });
+                await saveData(); // Сохранение данных на сервере
+                return `Данные "${input.trim()} это ${output.trim()}" добавлены для обучения.`;
+            }
+
+            // Предсказание на основе введенных данных
+            if (model) {
+                const inputIndex = uniqueInputs.indexOf(question);
+                if (inputIndex !== -1) {
+                    const inputTensor = tf.tensor1d([inputIndex], 'float32'); // Преобразование в float32
+                    const prediction = model.predict(inputTensor);
+                    const predictedIndex = prediction.argMax(-1).dataSync()[0];
+                    const predictedValue = uniqueOutputs[predictedIndex];
+                    return `Предсказание для "${question}": ${predictedValue}`;
+                } else {
+                    return `Извините, я пока не знаю ответа на этот вопрос.`;
+                }
+            }
+
             // Серверная обработка остальных вопросов
             try {
                 const response = await fetch('/ask-bot', {
@@ -161,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify({ question }),
                 });
-        
+
                 if (!response.ok) throw new Error('Server error');
                 const data = await response.json();
                 return data.answer;
@@ -170,20 +254,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 return 'Извините, произошла ошибка.';
             }
         }
-        
-        
-        
-        
     }
 });
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
