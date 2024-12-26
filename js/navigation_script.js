@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await fetchData(); // Загрузка данных при инициализации
 
     const mainContent = document.getElementById('main-content');
+    const navBar = document.querySelector('.nav-bar');
 
     // Функция для обновления активного элемента
     function updateActiveLink(activeLink) {
@@ -77,6 +78,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (page === '/ask') {
             console.log('Initializing chat on /ask page.');
             setupChat();
+            if (navBar) {
+                navBar.style.display = 'none'; // Скрыть меню
+            }
+        } else {
+            if (navBar) {
+                navBar.style.display = 'block'; // Показать меню
+            }
         }
     }
 

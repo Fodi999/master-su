@@ -1,16 +1,22 @@
-<script type="module">
-  import { trainModel } from './model_training.js';
-</script>
+
 <section class="course-content1">
   <div id="result" class="result chat-window">
     <!-- Пример сообщений чата -->
-   
+    <div class="chat-response">
+      <img src="\images\feis 1.png" alt="Sushi Master" class="chat-avatar">
+      <div>
+        <b>Sushi Master</b>
+        <p>Привет! Как я могу помочь вам сегодня?</p>
+      </div>
+    </div>
   </div>
   <div class="chat-input-container">
-    <i class="bx bx-plus-circle chat-icon"></i>
+    <a href="/home" class="chat-icon" data-page="/home">
+        <i class="bx bx-home"></i>
+    </a>
     <input type="text" id="custom-input" class="chat-input" placeholder="Ваш вопрос..." />
     <button id="send-message" class="chat-icon">
-      <i class="bx bx-send"></i>
+        <i class="bx bx-send"></i>
     </button>
   </div>
 </section>
