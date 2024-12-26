@@ -1,11 +1,57 @@
-<section class="course-content">
-  <h2 class="h2">Ask a Question</h2>
-  <form class="form-label">
-    <input type="text" class="input" placeholder="Enter your question" />
-    <button type="submit" class="form-button">Submit</button>
-  </form>
+<section class="course-content1">
+  <div id="result" class="result chat-window">
+    <!-- Пример сообщений чата -->
+    <div class="chat-response"><b>Пользователь:</b> Сколько калорий в 1 кг лосося?</div>
+    <div class="chat-response"><b>Бот:</b> В 1 кг лосося содержится около 2080 калорий.</div>
+  </div>
+  <div class="chat-input-container">
+    <i class="bx bx-plus-circle chat-icon"></i>
+    <input type="text" id="custom-input" class="chat-input" placeholder="Ваш вопрос..." />
+    <i class="bx bx-down-arrow-circle bx-flip-vertical chat-icon"></i>
+  </div>
+  
+  
+  
 </section>
 
+
+
+<script>
+  // Example product calorie data (calories per 100g)
+  const calorieData = {
+    apple: 52,
+    banana: 89,
+    chicken: 239,
+    rice: 130,
+    salmon: 208, // Example data for "Лосось"
+  };
+
+  document.getElementById("custom-input").addEventListener("keypress", function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      const input = event.target.value;
+      const resultDiv = document.getElementById("result");
+
+      // Extract product and weight from input
+      const match = input.match(/калорий (.+) (\d+) ?кг|г/i);
+      if (match) {
+        const product = match[1].toLowerCase();
+        const weight = parseFloat(match[2]) * (input.includes('кг') ? 1000 : 1);
+
+        if (!calorieData[product]) {
+          resultDiv.innerHTML += `<div class='chat-response'>Sorry, calorie information for "<b>${product}</b>" is not available.</div>`;
+        } else {
+          const totalCalories = (calorieData[product] * weight) / 100;
+          resultDiv.innerHTML += `<div class='chat-response'>The total calories in <b>${weight}g</b> of <b>${product}</b> is <b>${totalCalories.toFixed(2)} kcal</b>.</div>`;
+        }
+      } else {
+        resultDiv.innerHTML += `<div class='chat-response'>Please provide input in the format: "Калорий [продукт] [вес] кг/г"</div>`;
+      }
+      resultDiv.scrollTop = resultDiv.scrollHeight;
+      event.target.value = '';
+    }
+  });
+</script>
 
 
 
