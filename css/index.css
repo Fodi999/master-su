@@ -1,372 +1,147 @@
 /* Общие переменные */
-:root { --primary-color: #4caf50; --inactive-color: #282828; --light-bg: #f9f9f9; --background-color: #ffffff; --font-family: 'Arial', sans-serif; --transition: all 0.3s ease-in-out; --icon-size: 24px; --text-color-light: #ffffff; --text-color-dark: #121212; --nav-height: 70px; --nav-border-radius: 35px; --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); --border-radius-small: 4px; --border-radius-medium: 8px; --border-radius-large: 10px; }
+:root { --primary-color: #4caf50; --inactive-color: #282828; --light-bg: #f9f9f9; --background-color: #ffffff; --font-family: 'Arial', sans-serif; --transition: all 0.3s ease-in-out; --icon-size: 24px; --text-color-light: #ffffff; --text-color-dark: #121212; --nav-height: 70px; --nav-border-radius: 35px; --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1); --border-radius-small: 4px; --border-radius-medium: 8px; --border-radius-large: 10px; } /* Общие переменные */
 
 /* Базовые стили */
-body { font-family: var(--font-family); background-color: var(--text-color-dark); color: var(--text-color-light); margin: 0; padding: 0 0 100px; line-height: 1.6; }
+body { font-family: var(--font-family); background-color: var(--text-color-dark); color: var(--text-color-light); margin: 0; padding: 0 0 100px; line-height: 1.6; } /* Базовые стили для body */
 
 /* Шапка */
-header { background: var(--inactive-color); color: var(--text-color-light); padding: 10px 20px; text-align: center; box-shadow: var(--box-shadow-light); }
-.header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-.logo { height: 50px; width: auto; }
+header { background: var(--inactive-color); color: var(--text-color-light); padding: 10px 20px; text-align: center; box-shadow: var(--box-shadow-light); } /* Стили для header */
+.header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; } /* Контейнер для шапки */
+.logo { height: 50px; width: auto; } /* Логотип */
 
 /* Основной контент */
-main { padding: 20px; max-width: 1200px; margin: 0 auto; }
-.main-content { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem; background-color: var(--light-bg); border-radius: var(--border-radius-medium); box-shadow: var(--box-shadow-light); }
+main { padding: 20px; max-width: 1200px; margin: 0 auto; } /* Основной контейнер */
+.main-content { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem; background-color: var(--light-bg); border-radius: var(--border-radius-medium); box-shadow: var(--box-shadow-light); } /* Контент внутри main */
 
 /* Изображение автора */
-.author-img { width: 100%; height: auto; max-width: 600px; border-radius: var(--border-radius-medium); object-fit: cover; border: 2px solid var(--primary-color); margin: 20px auto; display: block; }
+.author-img { width: 100%; height: auto; max-width: 600px; border-radius: var(--border-radius-medium); object-fit: cover; border: 2px solid var(--primary-color); margin: 20px auto; display: block; } /* Стили для изображения автора */
 
 /* Заголовки */
-h2, h3 { text-align: center; color: var(--text-color-light); margin-bottom: 1rem; }
-h2 { font-size: 1.5rem; font-weight: bold; }
-h3 { font-size: 1.25rem; }
+h2, h3 { text-align: center; color: var(--text-color-light); margin-bottom: 1rem; } /* Общие стили для заголовков */
+h2 { font-size: 1.5rem; font-weight: bold; } /* Стили для h2 */
+h3 { font-size: 1.25rem; } /* Стили для h3 */
 
 /* Абзацы текста */
-p { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; color: #555; text-align: justify; }
+p {
+    font-size: 1rem;            /* Размер шрифта */
+    line-height: 1.6;           /* Межстрочный интервал */
+    margin-bottom: 1rem;        /* Отступ снизу */
+    color: white;               /* Белый цвет текста */
+    text-align: justify;        /* Выравнивание текста по ширине */
+  }
+  /* Общее оформление для карточек рецептов */
+.recipe-card {
+    display: flex;
+    flex-direction: column; /* Чтобы фото было сверху, а текст снизу */
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .author-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .recipe-details {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
+  .course-item {
+    margin: 5px 0;
+  }
+  
+  .ingredients-list {
+    list-style-type: decimal;
+    margin-left: 20px;
+  }
+  
+  .ingredients-list li {
+    margin: 5px 0;
+  }
+  
+  .course-item h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+  
+  .course-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .recipe-card {
+      text-align: center;
+    }
+  
+    .author-img {
+      margin-bottom: 15px;
+    }
+  
+    .recipe-details {
+      text-align: center;
+    }
+  }
 
 /* Поля ввода */
-input { width: 320px; padding: 0.5rem; margin-right: 1rem; border: 1px solid #ccc; border-radius: var(--border-radius-small); font-size: 1rem; }
+input { width: 320px; padding: 0.5rem; margin-right: 1rem; border: 1px solid #ccc; border-radius: var(--border-radius-small); font-size: 1rem; } /* Стили для полей ввода */
 
 /* Кнопки */
-.form-button { display: inline-block; width: 100%; padding: 0.75rem; margin-top: 1.5rem; background-color: var(--primary-color); color: var(--text-color-light); border: none; border-radius: var(--border-radius-small); font-size: 1rem; font-weight: bold; text-align: center; cursor: pointer; transition: var(--transition); }
-.form-button:hover { background-color: #45a049; }
+.form-button { display: inline-block; width: 100%; padding: 0.75rem; margin-top: 1.5rem; background-color: var(--primary-color); color: var(--text-color-light); border: none; border-radius: var(--border-radius-small); font-size: 1rem; font-weight: bold; text-align: center; cursor: pointer; transition: var(--transition); } /* Стили для кнопок */
+.form-button:hover { background-color: #45a049; } /* Стили для кнопок при наведении */
 
 /* Секции */
-.about-author { padding: 1rem; background-color: var(--light-bg); border-radius: var(--border-radius-medium); margin: 1rem auto; max-width: 600px; }
-.course-target { text-align: center; margin: 40px auto; padding: 20px; font-size: 1.5rem; color: var(--primary-color); background-color: var(--inactive-color); border-radius: var(--border-radius-large); max-width: 800px; line-height: 1.8; }
-.why-choose-us { background-color: var(--inactive-color); padding: 40px 20px; border-radius: var(--border-radius-large); margin: 40px auto; max-width: 800px; color: var(--text-color-light); text-align: center; line-height: 1.8; }
-.why-choose-us h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 20px; }
-.why-choose-us p { font-size: 1rem; color: #e0e0e0; }
+.about-author { padding: 1rem; background-color: #333; border-radius: 8px; margin: 1rem auto; max-width: 800px; display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 10px; } /* тёмный фон */
+.author-img { width: 200px; height: 150px; object-fit: cover; border-radius: 8px; }
+.why-choose-us { background-color: #444; padding: 20px; border-radius: 8px; color: #fff; text-align: center; max-width: 600px; flex: 1; }
+.course-title { font-size: 2rem; font-weight: bold; color: #fff; margin-bottom: 10px; } /* белый текст */
+.course-description { font-size: 1.2rem; color: #ccc; margin-bottom: 20px; } /* светлый текст */
+.course-item { font-size: 1rem; color: #e0e0e0; margin: 5px 0; }
+.course-item h3 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; } /* белый текст */
+.course-item p { font-size: 1rem; line-height: 1.6; color: #ccc; } /* светлый текст */
 
-/* Карточки курса */
-.course-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px auto; padding: 20px; background-color: var(--inactive-color); border-radius: var(--border-radius-large); }
-.course-item { background: #1e1e1e; border-radius: var(--border-radius-large); overflow: hidden; box-shadow: var(--box-shadow-light); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.course-item:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); }
-.course-item img { width: 100%; height: 200px; object-fit: cover; }
-.course-item h4 { margin: 15px; font-size: 1.5rem; color: var(--primary-color); }
-.course-item p { margin: 0 15px 15px; font-size: 1rem; line-height: 1.6; color: #e0e0e0; }
+/* Стиль для карточек */
+.course-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; background-color: #444; border-radius: 8px; margin-top: 40px; }
+.course-item:hover { transform: scale(1.05); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) { .about-author { flex-direction: column; text-align: center; } .author-img { margin-bottom: 15px; } .why-choose-us { text-align: center; } }
+
 
 /* Список шагов */
-.steps { list-style: none; padding: 0; margin: 20px auto; max-width: 600px; }
-.steps li { margin: 10px 0; padding: 10px; background-color: var(--inactive-color); color: var(--text-color-light); border-radius: var(--border-radius-small); }
+.steps { list-style: none; padding: 0; margin: 20px auto; max-width: 600px; } /* Контейнер для списка шагов */
+.steps li { margin: 10px 0; padding: 10px; background-color: var(--inactive-color); color: var(--text-color-light); border-radius: var(--border-radius-small); } /* Элемент списка шагов */
 
-/* Чат */
-.chat-window {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #1a1a1a;
-    margin-bottom: 70px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-  } /* Окно чата */
-  
-  .chat-response {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    background-color: #2a2a2a;
-    border-radius: 8px;
-    padding: 15px;
-    margin-top: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  } /* Ответ чата */
-  
-  .chat-response b {
-    color: #4caf50;
-  } /* Жирный текст в ответе чата */
-  
-  .chat-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-  } /* Аватарка чата */
-  
-  /* Контейнер ввода чата */
-  .chat-input-container {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    border-radius: 30px;
-    background-color: #1a1a1a;
-    color: #fff;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    gap: 15px;
-    box-sizing: border-box;
-    z-index: 1000;
-  } /* Контейнер ввода чата */
-  
-  .chat-input {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    padding: 15px 20px;
-    border-radius: 25px;
-    font-size: 18px;
-    background-color: #333;
-    color: #fff;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-    height: 50px;
-  } /* Поле ввода чата */
-  
- /* Кнопка отправки сообщения */
-.chat-icon {
-    background-color: #4caf50; /* Зеленый цвет фона */
-    color: white;
-    border: none;
-    padding: 15px; /* Размер кнопки */
-    font-size: 24px; /* Размер иконки */
-    border-radius: 50%; /* Круглая форма */
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* Диаметр кнопки */
-    height: 50px; /* Диаметр кнопки */
-    transition: background-color 0.3s ease; /* Плавный переход для фона */
-  }
-  
-  .chat-icon:hover {
-    background-color: #45a049; /* Темно-зеленый цвет при наведении */
-  }
-  
-  .chat-icon i {
-    font-size: 24px; /* Размер иконки внутри кнопки */
-  }
-  
-  
-  .chat-send-button {
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: #00ff08;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #333;
-  } /* Кнопка отправки чата */
-  
-  .chat-send-button:hover {
-    color: #4caf50;
-    background-color: #444;
-  } /* Кнопка отправки чата при наведении */
-/* Кнопка возврата в меню */
-.back-to-menu-btn {
-    background-color: #4caf50; /* Зеленый цвет */
-    color: white;
-    border: none;
-    padding: 15px; /* Размер кнопки */
-    font-size: 20px;
-    border-radius: 50%; /* Круглая форма */
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* Диаметр кнопки */
-    height: 50px; /* Диаметр кнопки */
-    transition: background-color 0.3s ease; /* Плавный переход для фона */
-  }
-  
-  .back-to-menu-btn:hover {
-    background-color: #45a049; /* Темно-зеленый цвет при наведении */
-  }
-  
-  .back-to-menu-btn i {
-    font-size: 24px; /* Размер иконки внутри кнопки */
-  }
-  
-  
-  /* Адаптивность */
-  
-  /* Мобильные устройства до 768px */
-  @media (max-width: 768px) {
-    /* Уменьшаем размеры элементов в чате */
-    .chat-input {
-      padding: 12px 15px;
-      font-size: 16px;
-      height: 45px;
-    }
-  
-    .chat-icon, .chat-send-button {
-      font-size: 24px;
-      width: 45px;
-      height: 45px;
-    }
-  
-    .chat-input-container {
-      padding: 10px;
-      bottom: 15px;
-      left: 10px;
-      right: 10px;
-      gap: 10px;
-    }
-  
-    .back-to-menu-btn {
-      font-size: 14px;
-      padding: 8px 15px;
-    }
-  
-    .chat-window {
-      margin-bottom: 60px; /* Уменьшаем отступ от нижней части экрана */
-    }
-  }
-  
-  /* Мобильные устройства до 480px */
-  @media (max-width: 480px) {
-    .chat-input {
-      padding: 10px 12px;
-      font-size: 14px;
-      height: 40px;
-    }
-  
-    .chat-icon, .chat-send-button {
-      font-size: 20px;
-      width: 40px;
-      height: 40px;
-    }
-  
-    .chat-input-container {
-      padding: 8px;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
-      gap: 8px;
-    }
-  
-    .back-to-menu-btn {
-      font-size: 12px;
-      padding: 6px 12px;
-    }
-  
-    .chat-window {
-      margin-bottom: 50px; /* Еще меньше отступ */
-    }
-  }
-  
-  
+/* Основное окно чата */ .chat-window { flex-grow: 1; overflow-y: auto; padding: 10px; border-radius: 8px; background-color: #1a1a1a; margin-bottom: 70px; box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); } 
+/* Ответы бота */ .chat-response { display: flex; align-items: flex-start; gap: 10px; background-color: #2a2a2a; border-radius: 8px; padding: 15px; margin-top: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); } 
+/* Жирный текст для имени бота */ .chat-response b { color: #4caf50; } 
+/* Аватар бота */ .chat-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; } 
+/* Контейнер ввода сообщения */ .chat-input-container { display: flex; align-items: center; padding: 12px; border-radius: 30px; background-color: #1a1a1a; color: #fff; position: fixed; bottom: 20px; left: 20px; right: 20px; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); gap: 15px; box-sizing: border-box; z-index: 1000; } 
+/* Поле ввода сообщения */ .chat-input { flex-grow: 1; border: none; outline: none; padding: 15px 20px; border-radius: 25px; font-size: 18px; background-color: #333; color: #fff; box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); height: 50px; } 
+/* Кнопка отправки сообщения */ .chat-icon { background-color: #4caf50; color: white; border: none; padding: 15px; font-size: 24px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; transition: background-color 0.3s ease; } 
+/* Кнопка отправки сообщения при наведении */ .chat-icon:hover { background-color: #45a049; } 
+/* Иконка внутри кнопки */ .chat-icon i { font-size: 24px; } 
+/* Кнопка возврата в меню */ .back-to-menu-btn { background-color: #4caf50; color: white; border: none; padding: 15px; font-size: 20px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; transition: background-color 0.3s ease; } 
+/* Кнопка возврата в меню при наведении */ .back-to-menu-btn:hover { background-color: #45a049; } 
+/* Иконка внутри кнопки возврата */ .back-to-menu-btn i { font-size: 24px; } 
+/* Адаптивность для устройств с шириной до 768px */ @media (max-width: 768px) { .chat-input { padding: 12px 15px; font-size: 16px; height: 45px; } .chat-icon, .chat-send-button { font-size: 24px; width: 45px; height: 45px; } .chat-input-container { padding: 10px; bottom: 15px; left: 10px; right: 10px; gap: 10px; } .back-to-menu-btn { font-size: 14px; padding: 8px 15px; } .chat-window { margin-bottom: 60px; } } 
+/* Адаптивность для устройств с шириной до 480px */ @media (max-width: 480px) { .chat-input { padding: 10px 12px; font-size: 14px; height: 40px; } .chat-icon, .chat-send-button { font-size: 20px; width: 40px; height: 40px; } .chat-input-container { padding: 8px; bottom: 10px; left: 10px; right: 10px; gap: 8px; } .back-to-menu-btn { font-size: 12px; padding: 6px 12px; } .chat-window { margin-bottom: 50px; } }
+
 /* Навигационная панель */
-.nav-bar {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 500px;
-    height: var(--nav-height);
-    background-color: rgba(40, 40, 40, 0.5);
-    border-radius: var(--nav-border-radius);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    padding: 10px 0;
-  }
-  
-  /* Список навигации */
-  .nav-bar ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly; /* Центрируем элементы с равными отступами */
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  
-  /* Элемент списка навигации */
-  .nav-bar li {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Центрируем иконки и кружки */
-    flex-grow: 1;
-  }
-  
-  /* Ссылка навигации */
-  .nav-link {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Центрирование иконок */
-    text-decoration: none;
-    color: var(--text-color-light);
-    background-color: transparent;
-    border-radius: 50%;
-    transition: var(--transition);
-    font-size: var(--icon-size);
-    border: 2px solid transparent;
-    background-color: transparent; /* Начальный прозрачный фон */
-  }
-  
-  /* Активная ссылка навигации (зеленый кружок при клике) */
-  .nav-link.active {
-    background-color: var(--primary-color); /* Зеленый фон */
-    color: var(--background-color); /* Белый цвет для текста/иконки */
-    border-color: var(--primary-color); /* Зеленая обводка */
-  }
-  
-  /* Ссылка навигации при наведении */
-  .nav-link:hover {
-    transform: scale(1.1);
-    color: var(--text-color-light);
-    border-color: var(--primary-color);
-    background-color: rgba(0, 255, 0, 0.2); /* Легкий зеленый фон при наведении */
-  }
-  
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .nav-bar {
-      height: 60px; /* Уменьшаем высоту панели */
-      bottom: 15px; /* Небольшие отступы снизу */
-      padding: 5px 0; /* Уменьшаем отступы */
-    }
-  
-    .nav-link {
-      width: 40px; /* Уменьшаем размеры иконок */
-      height: 40px;
-      font-size: 18px; /* Уменьшаем размер шрифта */
-    }
-  
-    /* Сделаем панели больше для иконок */
-    .nav-bar ul {
-      justify-content: space-around; /* Распределяем элементы с равными промежутками */
-    }
-  
-    .nav-bar li {
-      flex-grow: 0; /* Убираем растягивание элементов */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .nav-bar {
-      height: 50px; /* Еще меньше высота для маленьких экранов */
-      bottom: 10px;
-    }
-  
-    .nav-link {
-      width: 35px;
-      height: 35px;
-      font-size: 16px; /* Уменьшаем размер иконок */
-    }
-  
-    .nav-bar ul {
-      justify-content: space-evenly; /* Увлажняем пространство между элементами */
-    }
-  
-    .nav-bar li {
-      flex-grow: 0; /* Стабилизируем размер элементов */
-    }
-  }
+.nav-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); max-width: 500px; height: var(--nav-height); background-color: rgba(40, 40, 40, 0.5); border-radius: var(--nav-border-radius); display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); z-index: 1000; padding: 10px 0; } /* Навигационная панель */
+.nav-bar ul { list-style: none; display: flex; justify-content: space-evenly; align-items: center; padding: 0; margin: 0; width: 100%; } /* Список навигации */
+.nav-bar li { display: flex; justify-content: center; align-items: center; flex-grow: 1; } /* Элемент списка навигации */
+.nav-link { width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; text-decoration: none; color: var(--text-color-light); background-color: transparent; border-radius: 50%; transition: var(--transition); font-size: var(--icon-size); border: 2px solid transparent; background-color: transparent; } /* Ссылка навигации */
+.nav-link.active { background-color: var(--primary-color); color: var(--background-color); border-color: var(--primary-color); } /* Активная ссылка навигации */
+.nav-link:hover { transform: scale(1.1); color: var(--text-color-light); border-color: var(--primary-color); background-color: rgba(0, 255, 0, 0.2); } /* Ссылка навигации при наведении */
   
 
 
